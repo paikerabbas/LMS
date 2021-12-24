@@ -1,5 +1,7 @@
 package com.saien.lmsbackend.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +23,11 @@ public class StudentController {
 	@GetMapping("student/{id}")
 	public Student getStudentById(@PathVariable String id) {
 		return studentService.getSingleStudent(Integer.parseInt(id));
+	}
+
+	@GetMapping("student")
+	public List<Student> getStudents() {
+		return studentService.fetchStudents();
 	}
 
 }

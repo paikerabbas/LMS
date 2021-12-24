@@ -36,4 +36,11 @@ public class StudentService {
 
 	}
 
+	/**
+	 * @return
+	 */
+	public List<Student> fetchStudents() {
+		return list;
+	}
+
 }
