@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../services/auth-service.service';
 
 @Component({
   selector: 'app-auth',
@@ -16,7 +17,8 @@ export class AuthComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router // private accountService: AccountService, // private alertService: AlertService
+    private router: Router, // private accountService: AccountService, // private alertService: AlertService
+    private _authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -44,15 +46,19 @@ export class AuthComponent implements OnInit {
 
     console.log(this.form);
 
-    if (
-      this.f.username.value === 'user' &&
-      this.f.password.value === 'password'
-    ) {
-      console.log('login successful');
-      this.router.navigateByUrl('/dashboard');
-    } else {
-      this.userLoginFailed = true;
-    }
+    const name = this.f.username.value;
+    const password = this.f.password.value;
+
+    this._authService.login({ name, password }).subscribe(
+      (data) => {
+        console.log(data);
+        console.log('login successful');
+        this.router.navigateByUrl('/dashboard');
+      },
+      (error) => {
+        this.userLoginFailed = true;
+      }
+    );
 
     // this.loading = true;
 
