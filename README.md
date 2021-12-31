@@ -14,3 +14,10 @@ CLI command to generate an auth "services" inside service folder.
 
 CLI command to generate user model inside "models" folder
 > ng g class /models/user --type=model
+
+Technologies used in the project:
+> Typescript: 4.3.5 \
+> Angular: 12.2.0 \
+> Java: 1.8 \
+> Gradle: 7.3.1 \
+> Spring Boot: 2.6.1
