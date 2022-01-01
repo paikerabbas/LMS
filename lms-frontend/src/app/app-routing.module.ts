@@ -9,9 +9,15 @@ const routes: Routes = [
     component: AuthComponent,
   },
   {
+    path: 'login',
+    component: AuthComponent,
+  },
+  {
     path: 'dashboard',
     component: DashboardComponent,
   },
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

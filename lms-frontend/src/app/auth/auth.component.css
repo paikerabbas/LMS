@@ -1,0 +1,16 @@
+/* * {
+  margin: 0;
+  padding: 0;
+} */
+
+h4{
+  text-align: center;
+}
+
+form{
+  border: 1px solid grey;
+}
+
+.row-saparator{
+  padding: 5px;
+}
